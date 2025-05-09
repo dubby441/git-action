@@ -13,5 +13,5 @@ jobs:
     
     - name: executing shell script 
       run: |
-       chmod +x ascii.yml
-       ./ascii.yml
+       chmod +x ascii-script.yml
+       ./ascii-script.yml
