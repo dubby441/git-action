@@ -22,6 +22,7 @@ jobs:
 
 
   test-job2:
+    needs: build-job1
     runs-on: ubuntu-latest
     steps:
     - name: checkout repo
@@ -37,6 +38,7 @@ jobs:
       run: grep -i "dragon" dragon.txt  
    
   deploy-job3:
+    needs: test-job2
     runs-on: ubuntu-latest
     steps:
     - name: checkout repo
@@ -47,7 +49,7 @@ jobs:
       with:
        name: my-dragon-file
        path: dragon.txt
-       
+
     - name: read file
       run: cat dragon.txt
     #    chmod +x .github/workflows/ascii-script.sh
